@@ -1,38 +1,80 @@
+# 🎓 ComunicAluno
 
-ComunicaAluno Desktop 🎓
-AcademicBridge é uma aplicação desktop desenvolvida em Java para centralizar e organizar a comunicação entre alunos, professores e coordenação acadêmica. O projeto substitui fluxos informais de mensagens por um sistema de chamados e avisos auditáveis, garantindo que solicitações acadêmicas sejam registradas e respondidas com eficiência.
+<p align="center">
+  <img src="https://img.shields.io/badge/Java-ED8B00?style=for-the-badge&logo=openjdk&logoColor=white" alt="Java" />
+  <img src="https://img.shields.io/badge/MySQL-00000F?style=for-the-badge&logo=mysql&logoColor=white" alt="SQL" />
+  <img src="https://img.shields.io/badge/Desktop-Application-blue?style=for-the-badge" alt="Desktop" />
+  <img src="https://img.shields.io/badge/Status-Em%20Desenvolvimento-green?style=for-the-badge" alt="Status" />
+</p>
 
-🚀 Funcionalidades Principais
-Autenticação Segura: Sistema de login com diferentes níveis de acesso (RBAC).
+> **Solução robusta de comunicação acadêmica centralizada, desenvolvida em Java para integrar alunos, docentes e coordenação de forma auditável e segura.**
 
-Gestão de Perfis:
+---
 
-Alunos: Abertura de chamados, consulta de avisos da coordenação e contato com docentes.
+## 📌 Sobre o Projeto
 
-Professores: Dashboard para resposta de dúvidas e publicação de avisos por disciplina.
+O **ComunicAluno** nasce para mitigar o abismo informacional nas instituições de ensino. Diferente de aplicativos de mensagens instantâneas genéricos, nossa solução desktop foca na **formalidade e rastreabilidade**, garantindo que avisos oficiais e solicitações críticas não se percam em fluxos de conversas informais.
 
-Administradores: Gerenciamento completo de usuários e logs do sistema.
+### 🎯 Problema vs. Solução
+* **Problema:** Comunicação fragmentada, perda de prazos e dificuldade de acesso à coordenação.
+* **Solução:** Um ecossistema desktop único com permissões granulares (RBAC) e persistência de dados em SQL para histórico institucional.
 
-Persistência de Dados: Integração total com banco de dados SQL para histórico de comunicações.
+---
 
-Interface Desktop Nativa: Foco em performance e usabilidade em ambiente Windows/Linux/macOS.
+## 👥 Equipe de Engenharia
 
-🛠️ Stack Técnica
-Linguagem: Java 17+
+| Nome | Registro Acadêmico (RA) |
+| :--- | :--- |
+| **Vinícius Pampolim Silva** | 823157424 |
+| **Lucas Felipe Dias** | 823116804 |
+| **Raul Bertolla Silveira** | 82318856 |
+| **Gabriel Coelho Bononi** | 823156221 |
+| **Eduardo de Paiva Mantovam** | 82316154 |
+| **Guilherme Dos Santos Santana** | 823159723 |
 
-Interface Gráfica: Java Swing / JavaFX
+---
 
-Banco de Dados: MySQL / PostgreSQL (SQL Nativo)
+## 🛠️ Stack Tecnológica
 
-Persistência/Drivers: JDBC (Java Database Connectivity)
+* **Linguagem Core:** Java 17 (LTS)
+* **Interface Gráfica:** Java Swing / JavaFX
+* **Camada de Dados:** JDBC (Java Database Connectivity)
+* **Banco de Dados:** SQL (MySQL / PostgreSQL)
+* **Arquitetura:** MVC (Model-View-Controller)
 
-Gerenciador de Dependências: Maven ou Gradle
+---
 
-📂 Estrutura do Banco de Dados
-O sistema utiliza um modelo relacional para garantir a integridade dos dados acadêmicos. As principais entidades são:
+## ⚙️ Arquitetura e Funcionalidades
 
-usuarios (ID, Nome, E-mail, Senha, Tipo_Perfil)
+### 🔐 Níveis de Acesso (RBAC)
+1.  **Módulo Aluno:** Interface simplificada para abertura de tickets, consulta de avisos por disciplina e repositório de comunicados.
+2.  **Módulo Docente:** Dashboard de gestão para resposta de dúvidas e disparo de notificações em lote para turmas específicas.
+3.  **Módulo Admin (Devs):** Painel de controle de usuários, auditoria de logs e manutenção de tabelas.
 
-chamados (ID, Aluno_ID, Assunto, Mensagem, Status, Data)
+### 📊 Modelagem de Dados (Entity-Relationship)
+A persistência é garantida por um schema SQL normalizado:
+* `Tbl_Usuarios`: Autenticação e definição de privilégios.
+* `Tbl_Chamados`: Ciclo de vida das solicitações (Aberto, Em Análise, Concluído).
+* `Tbl_Mural`: Mensagens globais ou segmentadas por curso/turma.
 
-avisos (ID, Autor_ID, Titulo, Conteudo, Destinatario_Tipo)
+---
+
+## 🚀 Guia de Instalação
+
+### Pré-requisitos
+* Java Development Kit (JDK) 17+
+* Instância SQL ativa (Local ou Cloud)
+
+### Execução
+1.  **Clone o projeto:**
+    ```bash
+    git clone [https://github.com/seu-usuario/comunicaluno.git](https://github.com/seu-usuario/comunicaluno.git)
+    ```
+2.  **Configuração do DB:** Execute o script `setup_database.sql` disponível na pasta `/assets`.
+3.  **Configuração de Ambiente:** Edite o arquivo `src/main/resources/db.properties` com suas credenciais.
+4.  **Build & Run:**
+    ```bash
+    mvn clean install
+    mvn exec:java
+    ```
+<p align="center">Desenvolvido com foco em Engenharia de Software Aplicada.</p>
